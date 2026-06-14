@@ -1,7 +1,21 @@
-<body class="container mt-4">
-<h2>庫存管理</h2>
-<div id="inventoryList"></div>
-
-<script src="js/data.js"></script>
-<script src="js/inventory.js"></script>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>庫存畫面</title>
+  <link rel="stylesheet" href="shared.css">
+  <style data-critical-blue>body{background:#0b5ed7;color:#fff;font-family:Arial,'Microsoft JhengHei',sans-serif;margin:0}</style>
+</head>
+<body>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  <header class="app-header">
+    <div class="app-title">庫存管理</div>
+    <div class="app-subtitle">管理者限定</div>
+  </header>
+  <main id="inventoryList" class="screen-grid full-grid"></main>
+  <nav id="bottomNav" class="bottom-nav"></nav>
+  <script src="inventory.js"></script>
 </body>
+</html>

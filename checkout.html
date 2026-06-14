@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>廚房畫面</title>
+  <title>結帳</title>
   <link rel="stylesheet" href="shared.css">
   <style data-critical-blue>body{background:#0b5ed7;color:#fff;font-family:Arial,'Microsoft JhengHei',sans-serif;margin:0}</style>
 </head>
@@ -11,11 +11,14 @@
   <script src="data.js"></script>
   <script src="app.js"></script>
   <header class="app-header">
-    <div class="app-title">廚房系統</div>
-    <div class="app-subtitle">只顯示製作中訂單｜不可查看庫存</div>
+    <div class="app-title">結帳作業</div>
+    <div class="app-subtitle">服務生 / 管理者可使用</div>
   </header>
-  <main id="orders" class="screen-grid full-grid"></main>
+  <main class="layout">
+    <section id="tableGrid" class="screen-grid"></section>
+    <aside class="panel" id="checkoutInfo"></aside>
+  </main>
   <nav id="bottomNav" class="bottom-nav"></nav>
-  <script src="kitchen.js"></script>
+  <script src="checkout.js"></script>
 </body>
 </html>

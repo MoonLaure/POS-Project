@@ -1,26 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 <head>
-<title>點餐系統</title>
-<link rel="stylesheet" href="css/style.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>點餐畫面</title>
+  <link rel="stylesheet" href="shared.css">
+  <style data-critical-blue>body{background:#0b5ed7;color:#fff;font-family:Arial,'Microsoft JhengHei',sans-serif;margin:0}</style>
 </head>
+<body>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  <header class="app-header">
+    <div class="app-title">點餐系統</div>
+    <div class="app-subtitle">服務生操作畫面｜先選桌號，再輸入員工號與人數</div>
+  </header>
+  <main class="layout">
+    <section id="tableGrid" class="screen-grid"></section>
+    <aside class="panel">
+      <div class="panel-block notice" id="selectedTableText">目前桌號：尚未選擇</div>
 
-<body class="container mt-4">
-<h2>服務員點餐</h2>
+      <div id="orderLockedPanel" class="panel-block notice">
+        請先點選左側桌號，輸入員工號與人數後才會開啟點餐畫面。
+      </div>
 
-<select id="tableNo" class="form-select w-25 mb-3">
-  <option>桌號1</option>
-  <option>桌號2</option>
-</select>
+      <div id="orderPanel" class="hidden">
+        <div class="panel-block notice" id="employeeText">員工號：尚未輸入</div>
+        <div class="panel-block">
+          <h2>餐點</h2>
+          <div id="menuButtons" class="menu-list"></div>
+        </div>
+        <div class="panel-block">
+          <h2>目前訂單</h2>
+          <ul id="cart" class="cart-list"></ul>
+          <h3 id="totalText">合計：$0</h3>
+          <button onclick="submitOrder()">送出訂單</button>
+        </div>
+      </div>
+    </aside>
+  </main>
 
-<div id="menuList" class="row"></div>
+  <div id="employeeModal" class="modal-mask hidden">
+    <div class="modal-box">
+      <h2>輸入員工號</h2>
+      <p id="modalTableText">桌號：</p>
+      <label class="modal-label" for="employeeNoInput">員工號</label>
+      <input id="employeeNoInput" inputmode="numeric" placeholder="請輸入 4～8 位數字員工號">
+      <label class="modal-label" for="peopleInput">人數</label>
+      <input id="peopleInput" inputmode="numeric" placeholder="請輸入人數，例如 2">
+      <p id="employeeError" class="error-text"></p>
+      <div class="modal-actions">
+        <button onclick="cancelEmployeeInput()">取消</button>
+        <button onclick="confirmEmployeeNo()">確認</button>
+      </div>
+    </div>
+  </div>
 
-<h3 class="mt-4">訂單</h3>
-<ul id="cart"></ul>
-<button class="btn btn-success" onclick="submitOrder()">送出訂單</button>
-
-<script src="js/data.js"></script>
-<script src="js/order.js"></script>
+  <nav id="bottomNav" class="bottom-nav"></nav>
+  <script src="order.js"></script>
 </body>
 </html>
